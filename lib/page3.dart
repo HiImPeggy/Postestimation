@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
 import './page2.dart';
+import './main.dart';
+import 'package:camera/camera.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final cameras = await availableCameras();
-  final firstCamera = cameras.first;
-
-  runApp(MyApp(camera: firstCamera));
+void main() {
+  runApp(const MyApp3());
 }
 
-class MyApp extends StatelessWidget {
-  final CameraDescription camera;
-
-  const MyApp({Key? key, required this.camera}) : super(key: key);
+class MyApp3 extends StatelessWidget {
+  const MyApp3({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: PostureEstimationScreen(camera: camera),
+    return const MaterialApp(
+      home: PostureEstimationScreen(),
     );
   }
 }
 
 class PostureEstimationScreen extends StatelessWidget {
-  final CameraDescription camera;
-
-  const PostureEstimationScreen({Key? key, required this.camera}) : super(key: key);
+  const PostureEstimationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +27,11 @@ class PostureEstimationScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center, // 将Row中的内容置中对齐
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center, // 将Column中的内容置中对齐
               children: [
                 const Text(
                   'Estimate Your Posture',
@@ -67,12 +60,9 @@ class PostureEstimationScreen extends StatelessWidget {
                 const SizedBox(height: 25),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MyApp2(camera: camera),
-                      ),
-                    );
+                    // TODO: 实现打开相机的功能
+                    Navigator.of(context).pop();
+                    //Navigator.push(context, MaterialPageRoute(builder:(context)=>));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
