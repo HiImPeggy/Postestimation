@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './page2.dart';
+import 'open_camera.dart';
 import './main.dart';
 import 'package:camera/camera.dart';
 

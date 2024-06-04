@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import './page2.dart';
+import './open_camera.dart';
+import 'upload_img.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -85,9 +86,11 @@ class PostureEstimationScreen extends StatelessWidget {
                   child: const Text('Turn on camera'),
                 ),
                 const SizedBox(height: 25),
+                
                 ElevatedButton(
                   onPressed: () {
                     // TODO: 实现上传图片的功能
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=>MyApp3()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -99,6 +102,7 @@ class PostureEstimationScreen extends StatelessWidget {
                   ),
                   child: const Text('Upload pictures'),
                 ),
+                
               ],
             ),
           ],
