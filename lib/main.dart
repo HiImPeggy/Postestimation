@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import './open_camera.dart';
-import 'upload_img.dart';
+import 'package:flutter_exit_app/flutter_exit_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +57,7 @@ class PostureEstimationScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  'Real time estimation\nor\nEstimate posture in pictures',
+                  'Real time estimation\nwith\nternsorflow lite',
                   style: TextStyle(
                     color: Colors.grey,
                     fontSize: 18,
@@ -89,8 +89,7 @@ class PostureEstimationScreen extends StatelessWidget {
                 
                 ElevatedButton(
                   onPressed: () {
-                    // TODO: 实现上传图片的功能
-                    Navigator.push(context, MaterialPageRoute(builder:(context)=>MyApp3()));
+                    FlutterExitApp.exitApp();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -100,7 +99,7 @@ class PostureEstimationScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: const Text('Upload pictures'),
+                  child: const Text('Exit'),
                 ),
                 
               ],
